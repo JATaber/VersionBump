@@ -1,7 +1,7 @@
 {
   "name": "versionbump",
   "version": "1.0.0",
-  "description": "demo for version bumpinh",
+  "description": "demo for version bumping",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
