@@ -1,13 +1,6 @@
 const gulp = require('gulp');
 const bump = require('gulp-bump');
-const argv = require('yargs').argv;
-// `fs` is used instead of require to prevent caching in watch (require caches)
-const fs = require('fs');
-const semver = require('semver');
 
-let getPackageJson = function () {
-  return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-};
 // Basic usage:
 // Will patch the version
 gulp.task('bump', () => {
@@ -48,31 +41,3 @@ gulp.task('bump', () => {
     .pipe(bump({key: "version"}))
     .pipe(gulp.dest('./'));
 });
-/*
-// bump versions on package/bower/manifest
-gulp.task('bump',() => {
-  // reget package
-  let pkg = getPackageJson();
-  // increment version
-  let newVer = semver.inc(pkg.version, 'patch');
-
-  // uses gulp-filter
-  let manifestFilter = tasks.filter(['manifest.json']);
-  let regularJsons = tasks.filter(['!manifest.json']);
-
-  return gulp.src(['./bower.json', './package.json', './src/manifest.json'])
-    .pipe(tasks.bump({
-      version: newVer
-    }))
-    .pipe(manifestFilter)
-    .pipe(gulp.dest('./src'))
-    .pipe(manifestFilter.restore())
-    .pipe(regularJsons)
-    .pipe(gulp.dest('./'));
-});
-
-// Run the gulp tasks
-gulp.task('default', function(){
-  gulp.run('bump');
-});
-*/
