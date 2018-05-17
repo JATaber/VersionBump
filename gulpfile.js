@@ -11,28 +11,28 @@ let getPackageJson = function () {
 // Basic usage:
 // Will patch the version
 gulp.task('bump', () => {
-  gulp.src('./component.json')
+  gulp.src('./package.json')
     .pipe(bump())
     .pipe(gulp.dest('./'));
 });
 // Defined method of updating:
 // Semantic
 gulp.task('bump', () => {
-  gulp.src('./*.json')
+  gulp.src('./package.json')
     .pipe(bump({type:'minor'}))
     .pipe(gulp.dest('./'));
 });
 // Defined method of updating:
 // Semantic major
 gulp.task('bump', () => {
-  gulp.src('./package.yml')
+  gulp.src('./package.json')
     .pipe(bump({type:'major'}))
     .pipe(gulp.dest('./'));
 });
 // Defined method of updating:
 // Set a specific version
 gulp.task('bump', () =>{
-  gulp.src('./*.json')
+  gulp.src('./package.json')
     .pipe(bump({version: '1.2.3'}))
     .pipe(gulp.dest('./'));
 });
@@ -70,9 +70,8 @@ gulp.task('bump',() => {
     .pipe(regularJsons)
     .pipe(gulp.dest('./'));
 });
-
+*/
 // Run the gulp tasks
 gulp.task('default', function(){
   gulp.run('bump');
 });
-*/
