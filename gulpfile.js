@@ -17,21 +17,21 @@ gulp.task('bump', () => {
 });
 // Defined method of updating:
 // Semantic
-gulp.task('bump', () => {
+gulp.task('bump:minor', () => {
   gulp.src('./package.json')
     .pipe(bump({type:'minor'}))
     .pipe(gulp.dest('./'));
 });
 // Defined method of updating:
 // Semantic major
-gulp.task('bump', () => {
+gulp.task('bump:major', () => {
   gulp.src('./package.json')
     .pipe(bump({type:'major'}))
     .pipe(gulp.dest('./'));
 });
 // Defined method of updating:
 // Set a specific version
-gulp.task('bump', () =>{
+gulp.task('bump:version', () =>{
   gulp.src('./package.json')
     .pipe(bump({version: '1.2.3'}))
     .pipe(gulp.dest('./'));
@@ -70,8 +70,9 @@ gulp.task('bump',() => {
     .pipe(regularJsons)
     .pipe(gulp.dest('./'));
 });
-*/
+
 // Run the gulp tasks
 gulp.task('default', function(){
   gulp.run('bump');
 });
+*/
